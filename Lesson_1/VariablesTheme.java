@@ -40,26 +40,10 @@ public class VariablesTheme {
         short maxShort = 32767;
         int maxInt = 2147483647;
         long maxLong = 9223372036854775807L;
-        System.out.println(maxByte);
-        maxByte++;
-        System.out.println(maxByte);
-        maxByte--;
-        System.out.println(maxByte);
-        System.out.println(maxShort);
-        maxShort++;
-        System.out.println(maxShort);
-        maxShort--;
-        System.out.println(maxShort);
-        System.out.println(maxInt);
-        maxInt++;
-        System.out.println(maxInt);
-        maxInt--;
-        System.out.println(maxInt);
-        System.out.println(maxLong);
-        maxLong++;
-        System.out.println(maxLong);
-        maxLong--;
-        System.out.println(maxLong);
+        System.out.println(maxByte + "\n" + (++maxByte) + "\n" + (--maxByte));
+        System.out.println(maxShort + "\n" + (++maxShort) + "\n" + (--maxShort));
+        System.out.println(maxInt + "\n" + (++maxInt) + "\n" + (--maxInt));
+        System.out.println(maxLong + "\n" + (++maxLong) + "\n" + (--maxLong));
 
         System.out.println("\n5. Перестановка значений переменных");
         int a = 2;
@@ -102,11 +86,11 @@ public class VariablesTheme {
         char underline = '_';
         char openParenthesis = '(';
         char closeParenthesis = ')';
-        System.out.println("  " + " " + " " + " " + slash + backSlash);
-        System.out.println("  " + " " + " " + slash + " " + " " + backSlash);
-        System.out.println("  " + " " + slash + underline + openParenthesis + " " + 
+        System.out.println("     " + slash + backSlash);
+        System.out.println("    " + slash + "  " + backSlash);
+        System.out.println("   " + slash + underline + openParenthesis + " " + 
                 closeParenthesis + backSlash);
-        System.out.println("  " + slash + " " + " " + " " + " " + " " + " " + backSlash);
+        System.out.println("  " + slash + "      " + backSlash);
         System.out.println(" " + slash + underline + underline + underline + underline + 
                 slash + backSlash + underline + underline + backSlash);
 
