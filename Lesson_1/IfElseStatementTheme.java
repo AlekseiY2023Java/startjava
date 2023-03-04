@@ -17,9 +17,9 @@ public class IfElseStatementTheme {
 
         float height = 1.7f;
         if (height < 1.8 ) {
-            System.out.println("Невысокий");
+            System.out.println("Невысокий рост");
         } else {
-            System.out.println("Высокий");
+            System.out.println("Высокий рост");
         }
 
         char firstCharName = "ALEKSEI".charAt(0);
