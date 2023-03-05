@@ -66,21 +66,22 @@ public class IfElseStatementTheme {
         num2 = 856;
         System.out.println("Число A " + num1);
         System.out.println("Число B " + num2);
-        int ones1 = num1 % 10;
-        int tens1 = num1 % 100 / 10;
-        int hundreds1 = num1 / 100;
-        int ones2 = num2 % 10;
-        int tens2 = num2 % 100 / 10;
-        int hundreds2 = num2 / 100;
-        if (ones1 == ones2 || tens1 == tens2 || hundreds1 == hundreds2) {
+        if (num1 % 10 == num2 % 10 || num1 % 100 - (num1 % 10) == num2 % 100 - (num2 % 10) ||
+            num1 - (num1 % 100) == num2 - (num2 % 100)) {
+            int ones1 = num1 % 10;
+            int tens1 = num1 % 100 / 10;
+            int hundreds1 = num1 / 100;
+            int ones2 = num2 % 10;
+            int tens2 = num2 % 100 / 10;
+            int hundreds2 = num2 / 100;
             if (ones1 == ones2) {
-                System.out.println("Одинаковая цифра " + ones1 + "в разряде 1");
+                System.out.println("Одинаковая цифра " + ones1 + " в разряде 1");
             }
             if (tens1 == tens2) {
-                System.out.println("Одинаковая цифра " + tens1 + "в разряде 2");
+                System.out.println("Одинаковая цифра " + tens1 + " в разряде 2");
             }
             if (hundreds1 == hundreds2) {
-                System.out.println("Одинаковая цифра " + hundreds1 + "в разряде 3");
+                System.out.println("Одинаковая цифра " + hundreds1 + " в разряде 3");
             }
         }
 
@@ -155,21 +156,22 @@ public class IfElseStatementTheme {
         int amountBanknote1 = 50; 
         int amountBanknote10 = 5; 
         int amountBanknote100 = 10; 
-        int calcAmountBanknote100 = sumReq / banknote100;
-        if (calcAmountBanknote100 > amountBanknote100) {
-            calcAmountBanknote100 = amountBanknote100;
-        }
-        int sumTmp = sumReq - (calcAmountBanknote100 * banknote100);
-        int calcAmountBanknote10 = sumTmp / banknote10;
-        if (calcAmountBanknote10 > amountBanknote10) {
-            calcAmountBanknote10 = amountBanknote10;
-        }
-        sumTmp -= calcAmountBanknote10 * banknote10 ;
-        int calcAmountBanknote1 = sumTmp / banknote1;
-        if (calcAmountBanknote1 <= amountBanknote1) {
-            System.out.println("Выдана сумма " + sumReq + "банкнотами :");
+        if (sumReq % 10 <= amountBanknote1 &&
+            sumReq % 100 <= (amountBanknote1 + amountBanknote10 * 10) &&
+            sumReq <= (amountBanknote1 + amountBanknote10 * 10 + amountBanknote100 * 100)) {
+            System.out.println("Выдана сумма " + sumReq + " банкнотами :");
+            int calcAmountBanknote100 = sumReq / banknote100;
+            if (calcAmountBanknote100 > amountBanknote100) {
+                calcAmountBanknote100 = amountBanknote100;
+            }
             System.out.println("номинал " + banknote100 + " - " + calcAmountBanknote100 + " шт.");
+            sumReq -= calcAmountBanknote100 * banknote100;
+            int calcAmountBanknote10 = sumReq / banknote10;
+            if (calcAmountBanknote10 > amountBanknote10) {
+                calcAmountBanknote10 = amountBanknote10;
+            }
             System.out.println("номинал " + banknote10 + " - " + calcAmountBanknote10 + " шт.");
+            int calcAmountBanknote1 = sumReq - calcAmountBanknote10 * banknote10 ;
             System.out.println("номинал " + banknote1 + " - " + calcAmountBanknote1 + " шт.");
         } else {
             System.out.println("банкнот не хватает для выдачи суммы " + sumReq);
