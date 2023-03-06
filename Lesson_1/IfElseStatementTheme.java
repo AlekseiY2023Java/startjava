@@ -66,23 +66,16 @@ public class IfElseStatementTheme {
         num2 = 856;
         System.out.println("Число A " + num1);
         System.out.println("Число B " + num2);
-        if (num1 % 10 == num2 % 10 || num1 % 100 - (num1 % 10) == num2 % 100 - (num2 % 10) ||
-            num1 - (num1 % 100) == num2 - (num2 % 100)) {
-            int ones1 = num1 % 10;
+        if (num1 % 10 == num2 % 10) {
+            System.out.println("Одинаковая цифра " + (num1 % 10) + " в разряде 1");
+        }
+        if (num1 % 100 - (num1 % 10) == num2 % 100 - (num2 % 10)) {
             int tens1 = num1 % 100 / 10;
+            System.out.println("Одинаковая цифра " + tens1 + " в разряде 2");
+        }
+        if (num1 - (num1 % 100) == num2 - (num2 % 100)) {
             int hundreds1 = num1 / 100;
-            int ones2 = num2 % 10;
-            int tens2 = num2 % 100 / 10;
-            int hundreds2 = num2 / 100;
-            if (ones1 == ones2) {
-                System.out.println("Одинаковая цифра " + ones1 + " в разряде 1");
-            }
-            if (tens1 == tens2) {
-                System.out.println("Одинаковая цифра " + tens1 + " в разряде 2");
-            }
-            if (hundreds1 == hundreds2) {
-                System.out.println("Одинаковая цифра " + hundreds1 + " в разряде 3");
-            }
+            System.out.println("Одинаковая цифра " + hundreds1 + " в разряде 3");
         }
 
         System.out.println("\n5.Определение символа по его коду");
@@ -132,9 +125,9 @@ public class IfElseStatementTheme {
         }
         System.out.println(gradeHistory + " История");
         System.out.println(gradeProgramming + " Программирование");
-        float averageGrade = ( gradeHistory + gradeProgramming ) / 2;
+        float averageGrade = (gradeHistory + gradeProgramming) / 2;
         System.out.println("средний балл оценок по предметам " + averageGrade);
-        float averageRate = ( rateHistory + rateProgramming ) / 2;
+        float averageRate = (rateHistory + rateProgramming) / 2;
         System.out.println("средний % по предметам " + averageRate);
 
         System.out.println("\n8.Расчет прибыли за год");
@@ -156,23 +149,28 @@ public class IfElseStatementTheme {
         int amountBanknote1 = 50; 
         int amountBanknote10 = 5; 
         int amountBanknote100 = 10; 
+        boolean isBanknotes = false;
         if (sumReq % 10 <= amountBanknote1 &&
             sumReq % 100 <= (amountBanknote1 + amountBanknote10 * 10) &&
             sumReq <= (amountBanknote1 + amountBanknote10 * 10 + amountBanknote100 * 100)) {
-            System.out.println("Выдана сумма " + sumReq + " банкнотами :");
+            isBanknotes = true;
+        }
+        if (isBanknotes) {
             int calcAmountBanknote100 = sumReq / banknote100;
             if (calcAmountBanknote100 > amountBanknote100) {
                 calcAmountBanknote100 = amountBanknote100;
             }
-            System.out.println("номинал " + banknote100 + " - " + calcAmountBanknote100 + " шт.");
-            sumReq -= calcAmountBanknote100 * banknote100;
-            int calcAmountBanknote10 = sumReq / banknote10;
+            int sumTmp = sumReq - calcAmountBanknote100 * banknote100;
+            int calcAmountBanknote10 = sumTmp / banknote10;
             if (calcAmountBanknote10 > amountBanknote10) {
                 calcAmountBanknote10 = amountBanknote10;
             }
-            System.out.println("номинал " + banknote10 + " - " + calcAmountBanknote10 + " шт.");
-            int calcAmountBanknote1 = sumReq - calcAmountBanknote10 * banknote10 ;
-            System.out.println("номинал " + banknote1 + " - " + calcAmountBanknote1 + " шт.");
+
+            int calcAmountBanknote1 = sumTmp - calcAmountBanknote10 * banknote10 ;
+            System.out.println("Выдана сумма " + sumReq + " банкнотами:" + 
+                " номинал " + banknote100 + " - " + calcAmountBanknote100 + " шт.," +
+                " номинал " + banknote10 + " - " + calcAmountBanknote10 + " шт.," +
+                " номинал " + banknote1 + " - " + calcAmountBanknote1 + " шт.");
         } else {
             System.out.println("банкнот не хватает для выдачи суммы " + sumReq);
         }
