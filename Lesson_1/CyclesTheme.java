@@ -108,10 +108,10 @@ public class CyclesTheme {
         }
         System.out.println();
 
-        row = 5;
+        row = 1;
         int copyColumn = 0;
         do {
-            if(row < 4 ) {
+            if(row < 4) {
                 column = row;
                 copyColumn = column;
             } else {
@@ -123,8 +123,8 @@ public class CyclesTheme {
                 column--;
             } while (column > 0);
             System.out.println();
-            row--;
-        } while (row > 0);
+            row++;
+        } while (row < 6);
 
         System.out.println("\n7. Отображение ASCII-символов\n");
         System.out.println("Dec Char");
@@ -153,28 +153,21 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым\n");
         num = 456852;
-        int digits1 = 0;
-        int sumDigits1 = 0;
-        int digits2 = 0;
-        int sumDigits2 = 0;
-        int factor = 1;
-        for (int i = 1; i < 7; i++) {
-            if (i == 4) {
-                digits2 = digits1;
-                sumDigits2 = sumDigits1;
-                digits1 = 0;
-                sumDigits1 = 0;
-                factor = 1;
-            }
-            int digit = num % 10;
-            sumDigits1 += digit;
-            digits1 = digit * factor + digits1;
-            factor *= 10;
-            num /= 10;
+        int rightPartNum = num % 1000;
+        int leftPartNum = num / 1000;
+        int copyRightPartNum = rightPartNum;
+        int copyLeftPartNum = leftPartNum;
+        int sumDigitsRightPartNum = 0;
+        int sumDigitsLeftPartNum = 0;
+        for (int i = 0; i < 3; i++) {
+            sumDigitsLeftPartNum += copyLeftPartNum % 10;
+            sumDigitsRightPartNum += copyRightPartNum % 10;
+            copyRightPartNum /= 10;
+            copyLeftPartNum /= 10;
         }
-        System.out.println("Сумма цифр " + digits1 + " = " + sumDigits1);
-        System.out.println("Сумма цифр " + digits2 + " = " + sumDigits2);
-        if (sumDigits1 == sumDigits2) {
+        System.out.println("Сумма цифр " + leftPartNum + " = " + sumDigitsLeftPartNum);
+        System.out.println("Сумма цифр " + rightPartNum + " = " + sumDigitsRightPartNum);
+        if (sumDigitsLeftPartNum == sumDigitsRightPartNum) {
             System.out.println("Число является счастливым");
         } else {
             System.out.println("Число не является счастливым");
