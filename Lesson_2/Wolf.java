@@ -6,20 +6,40 @@ public class Wolf {
     private float weight;
     private int age;
 
+    public String getGender() {
+        return gender;
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getNickname() {
+        return nickname;
     }
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 
+    public String getColor() {
+        return color;
+    }
+
     public void setColor(String color) {
         this.color = color;
     }
 
+    public float getWeight() {
+        return weight;
+    }
+
     public void setWeight(float weight) {
         this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int age) {
@@ -28,26 +48,6 @@ public class Wolf {
         } else {
             this.age = age;
         }
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public void go() {
@@ -62,7 +62,7 @@ public class Wolf {
         System.out.println("Бежать");
     }
 
-    public void wail() {
+    public void howl() {
         System.out.println("Выть");
     }
 
