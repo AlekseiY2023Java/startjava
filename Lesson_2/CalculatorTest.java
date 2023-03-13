@@ -19,7 +19,7 @@ public class CalculatorTest {
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no] ");
                 userResponse = scanner.nextLine();
-            } while (!(userResponse.equals("yes") || userResponse.equals("no")));
+            } while (!userResponse.equals("yes") && !userResponse.equals("no"));
         } while (userResponse.equals("yes"));
     }
 }

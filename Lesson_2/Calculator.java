@@ -17,31 +17,23 @@ public class Calculator {
     }
 
     public int calculate() {
-        int result = 0;
         switch(sign) {
             case '+' :
-                result = operand1 + operand2;
-                break;
+                return operand1 + operand2;
             case '-' :
-                result = operand1 - operand2;
-                break;
+                return operand1 - operand2;
             case '*' :
-                result = operand1 * operand2;
-                break;
+                return operand1 * operand2;
             case '/' :
-                result = operand1 / operand2;
-                break;
+                return operand1 / operand2;
             case '%' :
-                result = operand1 % operand2;
-                break;
+                return operand1 % operand2;
             case '^' :
-                result = 1;
-                for(int i = 0; i < operand2; i++) {
-                    result *= operand1;
-                }
-                break;
+                return (int) Math.pow(operand1, operand2);
+            default:
+                System.out.println("Операция не поддерживается");
+                return 0;
         }
-        return result;
     }
 }
 
