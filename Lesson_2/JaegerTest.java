@@ -11,6 +11,7 @@ public class JaegerTest {
                 jaeger1.getMark() + "\n\torigin: " + jaeger1.getOrigin() + "\n\tstrength: " + 
                 jaeger1.getStrength() + "\n\tarmor: " + jaeger1.getArmor());
         System.out.println(jaeger1.scanKaiju());
+        
         Jaeger jaeger2 = new Jaeger("Cherno Alpha", "Mark-1", "Russia", 10, 10);
         System.out.println(jaeger2);
         jaeger2.useVortexCannon();
