@@ -33,6 +33,6 @@ public class GuessNumber {
     }
 
     private Player selectPlayer(Player activePlayer) {
-        return (activePlayer.getName() == player1.getName()) ? player2 : player1;
+        return (activePlayer == player1) ? player2 : player1;
     }
 }
