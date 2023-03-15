@@ -15,11 +15,12 @@ public class Player {
         if (number > 0 && number < 101) {
             this.number = number;
             return true;
-        } else {
-            System.out.println("Число должно быть в интервале (0,100]");
-            return false;
-        }
-        
+        } 
+        return false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String toString() {

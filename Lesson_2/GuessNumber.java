@@ -12,30 +12,27 @@ public class GuessNumber {
 
     public void play() {
         int hiddenNumber = (int) (Math.random() * 100 + 1);
-        int numberActivePlayer = (int) (Math.random() * 2 + 1);
-        Player activePlayer;
+        Player activePlayer = player1;
         Scanner scanner = new Scanner(System.in);
         while(true) {
-            activePlayer = identifyActivePlayer(numberActivePlayer);
             System.out.print("Игрок " + activePlayer + " вводит число: ");
-            while (!activePlayer.setNumber(scanner.nextInt())) {}
+            while (!activePlayer.setNumber(scanner.nextInt())) {
+                System.out.println("Число должно быть в интервале (0,100]");
+            }
             if (activePlayer.getNumber() == hiddenNumber) {
                 System.out.println("Победил игрок " + activePlayer);
                 break;
-            } else if (activePlayer.getNumber() < hiddenNumber) {
+            }
+            if (activePlayer.getNumber() < hiddenNumber) {
                 System.out.println("Число " + activePlayer.getNumber() + " меньше того, что загадал компьютер");
-            } else if (activePlayer.getNumber() > hiddenNumber) {
+            } else {
                 System.out.println("Число " + activePlayer.getNumber() + " больше того, что загадал компьютер");
             }
-            numberActivePlayer = numberActivePlayer % 2 + 1;
+            activePlayer = selectPlayer(activePlayer);
         }
     }
 
-    private Player identifyActivePlayer(int numberActivePlayer) {
-        if (numberActivePlayer == 1) {
-            return player1;
-        } else {
-            return player2;
-        }
+    private Player selectPlayer(Player activePlayer) {
+        return (activePlayer.getName() == player1.getName()) ? player2 : player1;
     }
 }
