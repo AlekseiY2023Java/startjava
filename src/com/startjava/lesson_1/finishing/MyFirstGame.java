@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.finishing;
+
 public class MyFirstGame {   
     public static void main(String[] args) {
         int hiddenNum = 55;
