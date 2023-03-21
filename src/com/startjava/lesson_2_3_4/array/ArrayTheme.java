@@ -21,10 +21,9 @@ public class ArrayTheme {
         int product = 1;
         for (int i = 1; i < len - 1; i++) {
             product *= intArr[i];
-            System.out.print(intArr[i] + " " + (i < len - 2 ? "*" : "=") + " ");
+            System.out.print(intArr[i] + " " + (i < len - 2 ? "* " : "= " + product ) );
         }
-        System.out.println(product);
-        System.out.println("МассивЧисел[0] = " + intArr[0]);
+        System.out.println("\nМассивЧисел[0] = " + intArr[0]);
         System.out.println("МассивЧисел[9] = " + intArr[9]);
 
         System.out.println("\n3. Удаление элементов массива");
@@ -123,11 +122,13 @@ public class ArrayTheme {
         System.out.println("Второй массив");
         printStringArray(stringArray2);
     }
+    
     private static void printIntArray(int[] array) {
         for (int number: array)
             System.out.print(number + " ");
         System.out.println();
     }
+
     private static void printFloatArray(float[] array, int numberColumns) {
         int len = array.length;
         for (int i = 0; i < len; i++) {
@@ -137,6 +138,7 @@ public class ArrayTheme {
         }
         System.out.println();
     }
+
     private static void printStringArray(String[] array) {
         for (String string: array)
             System.out.print(string + ";");
