@@ -63,7 +63,7 @@ public class ArrayTheme {
         }
 
         System.out.println("\n5. Генерация уникальных чисел");
-        int uniqueNumbers[] = new int[30];
+        int[] uniqueNumbers = new int[30];
         int amountNumbers = 0;
         len = uniqueNumbers.length;
         while (amountNumbers < len) {
@@ -128,7 +128,7 @@ public class ArrayTheme {
     }
     
     private static void printIntArr(int[] arr) {
-        for (int number: arr) {
+        for (int number : arr) {
             System.out.print(number + " ");
         }
         System.out.println();

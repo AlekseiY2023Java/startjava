@@ -2,23 +2,11 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    private int operand1;
-    private int operand2;
-    private char sign;
-
-    public void setOperand1(int operand1) {
-        this.operand1 = operand1;
-    }
-    
-    public void setOperand2(int operand2) {
-        this.operand2 = operand2;
-    }
-    
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    public int calculate() {
+    public double calculate(String expression) {
+        String[] elementsExpression = expression.split(" ", 3);
+        int operand1 = Integer.parseInt(elementsExpression[0]);
+        int operand2 = Integer.parseInt(elementsExpression[2]);
+        char sign = elementsExpression[1].charAt(0);
         switch(sign) {
             case '+' :
                 return operand1 + operand2;
@@ -27,15 +15,14 @@ public class Calculator {
             case '*' :
                 return operand1 * operand2;
             case '/' :
-                return operand1 / operand2;
+                return ((double) operand1) / ((double) operand2);
             case '%' :
                 return operand1 % operand2;
             case '^' :
-                return (int) Math.pow(operand1, operand2);
+                return Math.pow(operand1, operand2);
             default:
                 System.out.println("Операция не поддерживается");
-                return 0;
+                return 0f;
         }
     }
 }
-

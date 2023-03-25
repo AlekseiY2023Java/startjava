@@ -4,23 +4,35 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
+    private static final int COUNT_PLAYERS = 2;
+    private static final int COUNT_ATTEMPTS = 10;
+
     public static void main(String[] args) {
-        String playerResponse;
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("\nВведите имя первого игрока ");
-        Player player1 = new Player(scanner.nextLine());
+        Player[] players = getNewPlayers(COUNT_PLAYERS, COUNT_ATTEMPTS);
+        GuessNumber game = new GuessNumber(players);
 
-        System.out.print("\nВведите имя второго игрока ");
-        Player player2 = new Player(scanner.nextLine());
-
-        GuessNumber game = new GuessNumber(player1, player2);
+        String playerResponse = "yes";
         do {
-            game.play();
-            do {
-                System.out.print("\nХотите продолжить игру? [yes/no] ");
-                playerResponse = scanner.nextLine();
-            } while (!playerResponse.equals("yes") && !playerResponse.equals("no"));
-        } while (playerResponse.equals("yes"));
+            if (playerResponse.equals("yes")) {
+                game.play();
+            }
+            System.out.print("\nХотите продолжить игру? [yes/no] ");
+            playerResponse = scanner.nextLine();
+        } while (!playerResponse.equals("no"));
+    }
+
+    private static Player[] getNewPlayers(int countPlayers, int countAttempts) {
+        Player[] players = new Player[countPlayers];
+        for (int i = 0; i < countPlayers; i++) {
+            players[i] = getNewPlayer(i + 1, countAttempts);
+        }
+        return players;
+    }
+
+    private static Player getNewPlayer(int numberPlayer, int countAttempts) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nВведите имя " + numberPlayer + "-го игрока ");
+        return new Player(scanner.nextLine(), countAttempts);
     }
 }
