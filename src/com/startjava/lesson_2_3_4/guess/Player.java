@@ -11,7 +11,6 @@ public class Player {
     public Player(String name, int maxCountAttempts) {
         this.name = name;
         numbers = new int[maxCountAttempts];
-        attempt = 0;
     }
 
     public int getMaxCountAttempts() {
@@ -23,16 +22,12 @@ public class Player {
         attempt = 0;
     }
 
-    public int getNumberLastAttempt() {
+    public int getLastNumber() {
         return numbers[attempt - 1];
     }
 
-    public int getAttempt() {
-        return attempt;
-    }
-
-    public boolean isAttempts() {
-        return attempt < numbers.length;
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, attempt);
     }
 
     public boolean addNumber(int number) {
@@ -40,12 +35,16 @@ public class Player {
             numbers[attempt] = number;
             attempt++;
             return true;
-        } 
+        }
         return false;
     }
 
-    public int[] getNumbers() {
-        return Arrays.copyOf(numbers, attempt);
+    public int getAttempt() {
+        return attempt;
+    }
+
+    public boolean hasAttempts() {
+        return attempt < numbers.length;
     }
 
     public String toString() {

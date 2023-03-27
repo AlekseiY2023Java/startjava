@@ -12,7 +12,7 @@ public class CalculatorTest {
             if (userResponse.equals("yes")) {
                 System.out.print("Введите математическое выражение: ");
                 double result = calculator.calculate(scanner.nextLine());
-                if ((int) (result * 1000) % 1000 == 0) {
+                if ( result % 1 == 0) {
                     System.out.printf("Результат %.0f", result);
                 } else {
                     System.out.printf("Результат %.3f", result);

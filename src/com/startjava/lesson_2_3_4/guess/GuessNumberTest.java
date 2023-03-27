@@ -9,7 +9,7 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Player[] players = getNewPlayers(COUNT_PLAYERS, COUNT_ATTEMPTS);
+        Player[] players = createPlayers();
         GuessNumber game = new GuessNumber(players);
 
         String playerResponse = "yes";
@@ -22,17 +22,13 @@ public class GuessNumberTest {
         } while (!playerResponse.equals("no"));
     }
 
-    private static Player[] getNewPlayers(int countPlayers, int countAttempts) {
-        Player[] players = new Player[countPlayers];
-        for (int i = 0; i < countPlayers; i++) {
-            players[i] = getNewPlayer(i + 1, countAttempts);
+    private static Player[] createPlayers() {
+        Scanner scanner = new Scanner(System.in);
+        Player[] players = new Player[COUNT_PLAYERS];
+        for (int i = 0; i < COUNT_PLAYERS; i++) {
+            System.out.print("Введите имя " + (i + 1) + "-го игрока ");
+            players[i] = new Player(scanner.nextLine(), COUNT_ATTEMPTS);
         }
         return players;
-    }
-
-    private static Player getNewPlayer(int numberPlayer, int countAttempts) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\nВведите имя " + numberPlayer + "-го игрока ");
-        return new Player(scanner.nextLine(), countAttempts);
     }
 }

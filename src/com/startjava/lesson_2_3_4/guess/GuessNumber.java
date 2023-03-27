@@ -15,48 +15,41 @@ public class GuessNumber {
         for (Player player : players) {
             player.resetAttempts();
         }
-        Player activePlayer = players[0];
-        int hiddenNumber = getHiddenNumber();
+        int hiddenNumber = generateHiddenNumber();
         Scanner scanner = new Scanner(System.in);
+        boolean gameOn = true;
 
-        while(true) {
-            if (!activePlayer.isAttempts()) {
-                System.out.println("У " + activePlayer +  " закончились попытки");
-                break;
+        while(gameOn) {
+            for (Player player : players) {
+                if (!player.hasAttempts()) {
+                    System.out.println("У " + player +  " закончились попытки");
+                    gameOn = false;
+                    break;
+                }
+                System.out.print("Игрок " + player + " вводит число: ");
+                while (!player.addNumber(scanner.nextInt())) {
+                    System.out.println("Число должно быть в интервале (0,100]");
+                }
+                if (player.getLastNumber() == hiddenNumber) {
+                    System.out.println("Игрок " + player + " угадал число " + hiddenNumber +
+                                    " с " + player.getAttempt() + " попытки");
+                    gameOn = false;
+                    break;
+                }
+                if (player.getLastNumber() < hiddenNumber) {
+                    System.out.println("Число " + player.getLastNumber() +
+                            " меньше того, что загадал компьютер");
+                } else {
+                    System.out.println("Число " + player.getLastNumber() +
+                            " больше того, что загадал компьютер");
+                }
             }
-            System.out.print("Игрок " + activePlayer + " вводит число: ");
-            while (!activePlayer.addNumber(scanner.nextInt())) {
-                System.out.println("Число должно быть в интервале (0,100]");
-            }
-            if (activePlayer.getNumberLastAttempt() == hiddenNumber) {
-                System.out.println("Игрок " + activePlayer + " угадал число " + hiddenNumber + 
-                                " с " + activePlayer.getAttempt() + " попытки");
-                break;
-            }
-            if (activePlayer.getNumberLastAttempt() < hiddenNumber) {
-                System.out.println("Число " + activePlayer.getNumberLastAttempt() +
-                        " меньше того, что загадал компьютер");
-            } else {
-                System.out.println("Число " + activePlayer.getNumberLastAttempt() +
-                        " больше того, что загадал компьютер");
-            }
-            activePlayer = selectPlayer(activePlayer);
         }
         outNumbersPlayers();
     }
 
-    public int getHiddenNumber() {
+    public int generateHiddenNumber() {
         return (int) (Math.random() * 100.0f) + 1;
-    }
-
-    private Player selectPlayer(Player activePlayer) {
-        int countPlayers = players.length;
-        for (int i = 0; i < countPlayers; i++) {
-            if (activePlayer == players[i]) {
-                return (i == countPlayers - 1) ? players[0] : players[i + 1];
-            }
-        }
-        return players[0];
     }
 
     private void outNumbersPlayers() {
