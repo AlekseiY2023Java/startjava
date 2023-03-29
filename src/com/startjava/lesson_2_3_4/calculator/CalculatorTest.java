@@ -11,10 +11,10 @@ public class CalculatorTest {
             if (userResponse.equals("yes")) {
                 System.out.print("Введите математическое выражение: ");
                 try {
-                double result = Calculator.calculate(scanner.nextLine());
-                System.out.printf("Результат " + (result % 1 == 0 ? "%.0f " : "%.3f "), result);
-                } catch (RuntimeException error) {
-                    System.out.print(error.getMessage());
+                    double result = Calculator.calculate(scanner.nextLine());
+                    System.out.printf("Результат " + (result % 1 == 0 ? "%.0f " : "%.3f "), result);
+                } catch (RuntimeException e) {
+                    System.out.print(e.getMessage());
                 }
             }
             System.out.print("\nХотите продолжить вычисления? [yes/no] ");

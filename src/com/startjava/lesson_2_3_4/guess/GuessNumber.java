@@ -121,7 +121,7 @@ public class GuessNumber {
         System.out.printf((countWinners == 1 ? "\nПобедитель: " : "\nПобедители: "));
         for (int i = 0; i < countPlayers - 1; i++) {
             if (players[i].getWins() == maxWin) {
-                System.out.print(players[i]);
+                System.out.print(players[i] + " ");
                 if (countWinners == 1) {
                     break;
                 }
