@@ -8,16 +8,16 @@ public class Calculator {
         char sign;
 
         String[] elementsExpression = expression.split(" ", 3);
+        if (elementsExpression.length != 3) {
+            throw new RuntimeException("Неверный формат выражения");
+        }
         try {
             operand1 = Integer.parseInt(elementsExpression[0]);
             operand2 = Integer.parseInt(elementsExpression[2]);
             sign = elementsExpression[1].charAt(0);
         } catch (NumberFormatException e) {
             throw new RuntimeException("Неверный формат выражения");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            throw new RuntimeException("Неверный формат выражения");
         }
-
         if (operand1 < 1 || operand2 < 1) {
             throw new RuntimeException("В выражении должны быть только положительные числа");
         }
