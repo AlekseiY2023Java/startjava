@@ -51,10 +51,6 @@ public class Player {
         return scores;
     }
 
-    public String toString() {
-        return name;
-    }
-
     public void resetAttempts() {
         Arrays.fill(numbers, 0, attempt, 0);
         attempt = 0;
@@ -62,5 +58,9 @@ public class Player {
 
     public void resetScores() {
         scores = 0;
+    }
+
+    public String toString() {
+        return name;
     }
 }
