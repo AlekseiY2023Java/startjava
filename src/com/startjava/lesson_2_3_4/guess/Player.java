@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private int[] numbers;
     private int attempt;
-    private int wins;
+    private int scores;
 
     public Player(String name, int maxCountAttempts) {
         this.name = name;
@@ -16,15 +16,6 @@ public class Player {
 
     public int getMaxCountAttempts() {
         return numbers.length;
-    }
-
-    public void resetAttempts() {
-        Arrays.fill(numbers, 0, attempt, 0);
-        attempt = 0;
-    }
-
-    public void resetWins() {
-        wins = 0;
     }
 
     public int getLastNumber() {
@@ -52,15 +43,24 @@ public class Player {
         return attempt < numbers.length;
     }
 
-    public void addWin() {
-        wins++;
+    public void increaseScores() {
+        scores++;
     }
 
-    public int getWins() {
-        return wins;
+    public int getScores() {
+        return scores;
     }
 
     public String toString() {
         return name;
+    }
+
+    public void resetAttempts() {
+        Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
+    }
+
+    public void resetScores() {
+        scores = 0;
     }
 }
