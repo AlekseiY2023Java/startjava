@@ -2,7 +2,7 @@
 INSERT INTO Jaegers(modelName, mark, height, weight, status, origin, launch, kaijuKill)
 VALUES ('Cherno Alpha',    'Mark-1', 85, 2412, 'Destroyed', 'Russia',                   '2015-01-01', 6), 
        ('Coyote Tango',    'Mark-1', 65, 1100, 'Active',    'Japan',                    '2015-12-30', 2), 
-       ('Brawler Yukon',   'Mark-1', 90, 4568, 'Destroyed', 'United States of America',	'2015-01-30', 2), 
+       ('Brawler Yukon',   'Mark-1', 90, 4568, 'Destroyed', 'United States of America', '2015-01-30', 2), 
        ('Saber Athena',    'Mark-7', 76, 1628, 'Destroyed', 'Japan',                    '2033-12-20', 1),
        ('Storm Garuda',    'Mark-7', 77, 1234, 'Active',    'Indonesia',                '2032-07-11', 1), 
        ('Striker Eureka',  'Mark-5', 76, 1850, 'Active',    'Australia',                '2019-11-02', 11), 

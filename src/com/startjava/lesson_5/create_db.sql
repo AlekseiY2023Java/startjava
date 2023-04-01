@@ -19,5 +19,6 @@ CREATE TABLE Jaegers (
     launch DATE,
     kaijuKill INTEGER
 );
+
 \ir init_db.sql
 \ir queries.sql
